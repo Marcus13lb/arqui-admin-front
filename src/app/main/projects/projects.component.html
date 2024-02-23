@@ -1,1 +1,85 @@
-<p>projects works!</p>
+<div class="grid">
+    <div class="col-12">
+        <p-breadcrumb [home]="homeItem" [model]="items"></p-breadcrumb>
+    </div>
+    <div class="col-12">
+        <button (click)="elementAddShow = true;" class="p-button-rounded mr-2" pButton pRipple type="button" label="Agregar" icon="pi pi-plus"></button>
+    </div>
+    <div class="col-12">
+        <p-table #tabla styleClass="p-datatable-striped p-datatable-gridlines" [value]="list" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
+        currentPageReportTemplate="{first} a {last} de {totalRecords}" [rowsPerPageOptions]="[10,25,50]" [globalFilterFields]="['nombre']">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Última modificación</th>
+                    <th>Acciones</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="caption">
+                <div class="flex">
+                    <button pButton label="Limpiar" class="p-button-outlined p-button-sm mr-2" icon="pi pi-filter-slash" (click)="tabla.clear();buscar_tabla.value='';"></button>
+                    <span class="p-input-icon-left ml-auto">
+                        <i class="pi pi-search"></i>
+                        <input #buscar_tabla pInputText type="text" (input)="tabla.filterGlobal(buscar_tabla.value, 'contains')" placeholder="Buscar..." class="p-inputtext-sm"/>
+                    </span>
+                </div>
+            </ng-template> 
+            <ng-template pTemplate="body" let-element>
+                <tr>
+                    <td>{{element.nombre}}</td>
+                    <td>{{element.fecha_actualizacion | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+                    <td>
+                        <button (click)="setEdit(element)" pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-warning p-button-text mr-2"></button>
+                        <button (click)="confirm($event, element)" pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger p-button-text"></button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+
+<p-dialog [(visible)]="elementAddShow" styleClass="modal" [modal]="true">
+    <ng-template pTemplate="header">
+        Agregar
+    </ng-template>
+    <form [formGroup]="formAdd" class="grid" (submit)="add()">
+        <div class="col-12 sm:col-10 sm:col-offset-1">
+            <div class="field">
+                <label for="nombre" class="block">Nombre (<span>*</span>)</label>
+                <input formControlName="nombre" id="nombre" type="text" pInputText 
+                class="p-inputtext-sm {{formValidator(formAdd, 'nombre') ? 'ng-invalid ng-dirty':''}}"/>
+                <div *ngIf="formValidator(formAdd, 'nombre')">
+                    <p class="error" *ngIf="fieldValidator(formAdd, 'nombre', 'required')">
+                        Nombre requerido
+                    </p>             
+                </div>
+            </div>
+        </div>
+    </form>
+    <ng-template pTemplate="footer">
+        <button [disabled]="formAdd.invalid || elementAddLoading" (click)="add()" pButton pRipple type="button" icon="pi pi-check" label="Guardar" class="p-button-text"></button>
+    </ng-template>
+</p-dialog>
+
+<p-dialog [(visible)]="elementEditShow" styleClass="modal" [modal]="true">
+    <ng-template pTemplate="header">
+        Editar
+    </ng-template>
+    <form [formGroup]="formEdit" class="grid" (submit)="edit()">
+        <div class="col-12 sm:col-10 sm:col-offset-1">
+            <div class="field">
+                <label for="nombre" class="block">Nombre (<span>*</span>)</label>
+                <input formControlName="nombre" id="nombre" type="text" pInputText 
+                class="p-inputtext-sm {{formValidator(formEdit, 'nombre') ? 'ng-invalid ng-dirty':''}}"/>
+                <div *ngIf="formValidator(formEdit, 'nombre')">
+                    <p class="error" *ngIf="fieldValidator(formEdit, 'nombre', 'required')">
+                        Nombre requerido
+                    </p>             
+                </div>
+            </div>
+        </div>
+    </form>
+    <ng-template pTemplate="footer">
+        <button [disabled]="formEdit.invalid || elementEditLoading" (click)="edit()" pButton pRipple type="button" icon="pi pi-check" label="Guardar" class="p-button-text"></button>
+    </ng-template>
+</p-dialog>

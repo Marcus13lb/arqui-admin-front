@@ -9,6 +9,10 @@ import { DividerModule } from 'primeng/divider';
 import { CardModule } from 'primeng/card';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { SpeedDialModule } from 'primeng/speeddial';
+import { TableModule } from 'primeng/table';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
 
 @NgModule({
   declarations: [],
@@ -24,7 +28,11 @@ import { SpeedDialModule } from 'primeng/speeddial';
     DividerModule,
     CardModule,
     BreadcrumbModule,
-    SpeedDialModule
+    SpeedDialModule,
+    TableModule,
+    InputTextModule,
+    InputTextareaModule,
+    ConfirmPopupModule
   ]
 })
 export class PrimengMainModule { }

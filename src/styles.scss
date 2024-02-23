@@ -96,3 +96,7 @@ label span {
     background-color: var(--gray-100) !important;
     pointer-events: none !important;
 }
+
+textarea {
+    resize: vertical;
+}

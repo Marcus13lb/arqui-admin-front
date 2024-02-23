@@ -1,9 +1,0 @@
-export const CREADO = 0;
-export const RESPONDIDO = 1;
-export const CONFIRMADO = 2;
-export const ENVIADO_SERVER = 3;
-export const ERROR_JSON = 4;
-export const ENCUESTA_NO_OBLIGATORIA = 'E_NOB';
-export const ENCUESTA_OBLIGATORIA = 'E_OB';
-export const ENCUESTA_OBLIGATORIA_X_PARAMETRO = 'E_OB_PARAM';
-export const ENCUESTA_OBLIGATORIA_X_PREGUNTA = 'E_OBxPR';
