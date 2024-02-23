@@ -1,0 +1,98 @@
+@import "./globals.scss";
+
+body {
+    font-family: "Inter";
+    margin: 0;
+
+    p {
+        font-size: 14px;
+    }
+}
+
+.container {
+    padding: 1rem !important;
+}
+
+.sidebar {
+    
+    width: 100vw !important;
+
+    @media screen and (min-width: $sm) {
+        width: 80vw !important;
+    }
+    @media screen and (min-width: $md) {
+        width: 50vw !important;
+    }
+    @media screen and (min-width: $lg) {
+        width: 30vw !important;
+    }
+    @media screen and (min-width: $xl) {
+        width: 25vw !important;
+    }
+}
+
+.modal, .card {
+
+    width: 100%;
+    @media screen and (min-width: $sm){
+      width: 70vw;
+    }
+    @media screen and (min-width: $md){
+      width: 60vw;
+    }
+    @media screen and (min-width: $lg){
+      width: 40vw;
+    }
+    @media screen and (min-width: $xl){
+      width: 40vw;
+    }
+
+    .p-dialog-header {
+        font-size: 1rem;
+        color: var(--primary-color) !important;
+        font-weight: bold;
+    }
+}
+
+.modal-xl {
+
+    width: 80vw;
+
+    .p-dialog-header {
+        font-size: 1rem;
+        color: var(--primary-color) !important;
+        font-weight: bold;
+    }
+}
+
+.p-input-icon-left, .p-float-label, input {
+    width: 100%;
+}
+
+label span {
+    color: var(--pink-500);
+}
+
+.error {
+    font-size: 14px;
+    color: var(--pink-500);
+}
+
+.primary-color {
+    color: var(--primary-color);
+}
+
+.modal-break-points {
+    width: 90vw !important;
+    @media screen and (min-width: $md) {
+        width: 60vw !important;
+    }
+    @media screen and (min-width: $lg) {
+        width: 40vw !important;
+    }
+}
+
+.loading {
+    background-color: var(--gray-100) !important;
+    pointer-events: none !important;
+}

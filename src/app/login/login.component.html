@@ -1,0 +1,43 @@
+<div class="login">
+    <p-card styleClass="modal-break-points">
+        <ng-template pTemplate="header">
+            <div class="header">
+                <h3>{{env.appName}} {{env.version}}</h3>
+            </div>
+        </ng-template>
+        <form class="grid" [formGroup]="form" (submit)="login()">
+            <div class="col-12">
+                <label>Usuario</label>
+                <span class="p-input-icon-left mt-2">
+                    <i class="pi pi-user"></i>
+                    <input autocomplete="username" type="text" pInputText placeholder="Usuario..." formControlName="user"/>
+                </span>
+                <div *ngIf="formValidator(form, 'user')">            
+                    <p class="error" *ngIf="fieldValidator(form, 'user', 'required')">
+                       Usuario requerido
+                    </p>             
+                </div>
+            </div>
+            <div class="col-12">
+                <label>Contraseña</label>
+                <span class="p-input-icon-left mt-2">
+                    <i class="pi pi-lock"></i>
+                    <input autocomplete="current-password" type="password" pInputText placeholder="Contraseña..." formControlName="pw"/>
+                </span>
+            </div>
+            <div class="col-12">  
+                <div class="flex align-items-center">
+                    <div class="mr-2">
+                        <p-checkbox formControlName="recordar" [binary]="true" inputId="recordar"></p-checkbox>
+                    </div>
+                    <label for="recordar">Recordar usuario</label>
+                </div> 
+            </div>
+            <div class="col-12">
+                <button [disabled]="form.invalid" [loading]="loading" pButton type="submit" label="Ingresar" class="w-full"></button>
+            </div>
+        </form>
+    </p-card>
+</div>
+
+<p-toast key="login" position="top-left"></p-toast>

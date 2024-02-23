@@ -1,0 +1,47 @@
+<nav class="shadow-3 flex justify-content-between">
+    <div class="flex align-items-center">
+        <button (click)="openSidebar()" pButton pRipple type="button" icon="pi pi-bars" class="p-button-rounded p-button-text ml-3"></button>
+        <h3 class="font-bold">{{env.appName}} <small>{{env.version}}</small></h3>
+    </div>
+    <div class="opciones">
+        <div class="flex align-items-center">
+            <i class="pi pi-user mr-2"></i>
+            <p>{{currentUser?.usuario}}</p>
+        </div>
+        <div class="mx-2">
+            <button (click)="showCerrarSesion = true" pButton pRipple type="button" icon="pi pi-sign-out" class="p-button-rounded p-button-text"
+            pTooltip="Cerrar sesión"></button>
+        </div>
+    </div>
+</nav>
+<p-sidebar [(visible)]="sidebar" [dismissible]="true" styleClass="sidebar">
+    <div class="grid">
+        <div class="col-12">
+            <h3 class="mt-0">Menú</h3>
+        </div>
+        <div class="col-12">
+            <ng-container *ngFor="let item of sidebarItems">
+                <div class="item" (click)="sidebar = false; item.f()">
+                    <div>
+                        <i [classList]="item.icon"></i>
+                    </div>
+                    <div>
+                        <p>{{item.nombre}}</p>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</p-sidebar>
+
+<p-dialog header="Gedex" [(visible)]="showCerrarSesion" styleClass="modal-break-points" [modal]="true" [closable]="false">
+    <div class="grid">
+        <div class="col-12">
+            <p>¿Deseas cerrar tu sesión?</p>
+        </div>
+    </div>
+    <ng-template pTemplate="footer">
+        <button (click)="logout()" pButton pRipple type="button" label="Cerrar sesión"></button>
+        <button (click)="showCerrarSesion = false" pButton pRipple type="button" label="Cancelar" class="p-button-outlined p-button-secondary"></button>
+    </ng-template>
+</p-dialog>

@@ -1,0 +1,27 @@
+.login {
+    padding: 1rem;
+    min-height: 100vh;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+}
+
+.header {
+    align-items: center;
+    justify-content: center;
+    padding-top: 2rem;
+    display: flex;
+
+    h3 {
+        margin: 0;
+        text-align: center;
+    }
+
+    .gedex {
+        height: 32px;
+        width: 32px;
+        border-radius: 8px;
+    }
+}
