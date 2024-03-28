@@ -1,0 +1,9 @@
+<div class="grid">
+    <div class="col-12 col-md-4">
+        <input multiple accept="image/*" type="file" #fileInput (change)="onFileSelected($event)" style="display: none;">
+        <button (click)="openFileExplorer()" class="p-button-rounded mr-2" pButton pRipple type="button" label="Seleccionar archivos" icon="pi pi-file"></button>
+    </div>
+    <div *ngFor="let image of images; index as j;" class="col-6 col-md-4">
+        <app-image [img]="image" (delete)="removeImage($event, j)"></app-image>
+    </div>
+</div>

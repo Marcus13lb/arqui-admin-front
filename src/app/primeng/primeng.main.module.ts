@@ -13,6 +13,7 @@ import { TableModule } from 'primeng/table';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
+import { ImageModule } from 'primeng/image';
 
 @NgModule({
   declarations: [],
@@ -32,7 +33,8 @@ import { ConfirmPopupModule } from 'primeng/confirmpopup';
     TableModule,
     InputTextModule,
     InputTextareaModule,
-    ConfirmPopupModule
+    ConfirmPopupModule,
+    ImageModule
   ]
 })
 export class PrimengMainModule { }

@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ServicesComponent } from './services/services.component';
 import { ConfirmationService } from 'primeng/api';
+import { ImageUploaderComponent } from './shared/image-uploader/image-uploader.component';
+import { ImageComponent } from './shared/image/image.component';
 
 
 @NgModule({
@@ -19,6 +21,8 @@ import { ConfirmationService } from 'primeng/api';
     HomeComponent,
     ProjectsComponent,
     ServicesComponent,
+    ImageUploaderComponent,
+    ImageComponent,
   ],
   imports: [
     CommonModule,

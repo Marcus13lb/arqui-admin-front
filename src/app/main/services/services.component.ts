@@ -7,6 +7,13 @@ import { Response } from 'src/app/interfaces/response';
 import { ServicesService } from 'src/app/services/services.service';
 import { homeBreadCrumb } from 'src/app/utils/constants';
 import { fieldValidator, formValidator } from 'src/app/utils/formValidator';
+import * as dayjs from 'dayjs';
+import * as utc from 'dayjs/plugin/utc';
+import * as timezone from 'dayjs/plugin/timezone';
+
+// Luego, extiende Day.js con los plugins
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 @Component({
   selector: 'app-services',
@@ -55,6 +62,9 @@ export class ServicesComponent {
     this.serviceService.get().subscribe({
       next: (response: Response) => {
         this.list = response.result;
+        this.list.forEach(el => {
+          el.fecha_creacion = dayjs.utc(el.fecha_creacion).tz("America/Asuncion").format('YYYY-MM-DD HH:mm:ss')
+        })
         this.loader.stop();
       },
       error: (err:HttpErrorResponse) => {

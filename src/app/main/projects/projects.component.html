@@ -10,9 +10,7 @@
         currentPageReportTemplate="{first} a {last} de {totalRecords}" [rowsPerPageOptions]="[10,25,50]" [globalFilterFields]="['nombre']">
             <ng-template pTemplate="header">
                 <tr>
-                    <th>Nombre</th>
-                    <th>Última modificación</th>
-                    <th>Acciones</th>
+                    <th>Proyecto</th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="caption">
@@ -26,19 +24,40 @@
             </ng-template> 
             <ng-template pTemplate="body" let-element>
                 <tr>
-                    <td>{{element.nombre}}</td>
-                    <td>{{element.fecha_actualizacion | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
                     <td>
-                        <button (click)="setEdit(element)" pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-warning p-button-text mr-2"></button>
-                        <button (click)="confirm($event, element)" pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger p-button-text"></button>
+                        <div class="flex align-items-center justify-content-between">
+                            <div class="flex flex-column">
+                                <div>
+                                    <p class="font-bold m-0">{{element.nombre}}</p>
+                                    <p class="m-0">{{element.descripcion}}</p>
+                                </div>
+                                <div class="flex mt-2">
+                                    <ng-container *ngFor="let foto of element.fotos"> 
+                                        <div class="mr-2">
+                                            <p-image styleClass="img-preview" [preview]="true" src="{{foto}}" width="64" height="64"></p-image>      
+                                        </div>         
+                                    </ng-container>
+                                </div>
+                            </div>
+                            <div>
+                                <button (click)="confirm($event, element)" pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger p-button-text"></button>
+                            </div>
+                        </div>
                     </td>
+                    <!-- <td>{{element.nombre}}</td>
+                    <td>{{element.descripcion}}</td>
+                    <td>{{element.fecha_creacion | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+                    <td>
+                        <button (click)="openGalleria(element)" pButton pRipple type="button" icon="pi pi-images" class="p-button-rounded p-button-info p-button-text mr-2"></button>
+                        <button (click)="confirm($event, element)" pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger p-button-text"></button>
+                    </td> -->
                 </tr>
             </ng-template>
         </p-table>
     </div>
 </div>
 
-<p-dialog [(visible)]="elementAddShow" styleClass="modal" [modal]="true">
+<p-dialog [(visible)]="elementAddShow" styleClass="modal-xl" [modal]="true">
     <ng-template pTemplate="header">
         Agregar
     </ng-template>
@@ -55,13 +74,28 @@
                 </div>
             </div>
         </div>
+        <div class="col-12 sm:col-10 sm:col-offset-1">
+            <div class="field">
+                <label for="descripcion" class="block">Descripción (<span>*</span>)</label>
+                <textarea [style]="{ 'width' : '100%' }" formControlName="descripcion" rows="5" cols="30" pInputTextarea
+                class="{{formValidator(formAdd, 'descripcion') ? 'ng-invalid ng-dirty':''}}"></textarea>
+                <div *ngIf="formValidator(formAdd, 'descripcion')">
+                    <p class="error" *ngIf="fieldValidator(formAdd, 'descripcion', 'required')">
+                        Descripción requerida
+                    </p>             
+                </div>
+            </div>
+        </div>
+        <div class="col-12 sm:col-10 sm:col-offset-1">
+            <app-image-uploader (emitImages)="setFotos($event, formAdd)"></app-image-uploader>
+        </div>
     </form>
     <ng-template pTemplate="footer">
         <button [disabled]="formAdd.invalid || elementAddLoading" (click)="add()" pButton pRipple type="button" icon="pi pi-check" label="Guardar" class="p-button-text"></button>
     </ng-template>
 </p-dialog>
 
-<p-dialog [(visible)]="elementEditShow" styleClass="modal" [modal]="true">
+<p-dialog [(visible)]="elementEditShow" styleClass="modal-xl" [modal]="true">
     <ng-template pTemplate="header">
         Editar
     </ng-template>
@@ -78,8 +112,39 @@
                 </div>
             </div>
         </div>
+        <div class="col-12 sm:col-10 sm:col-offset-1">
+            <div class="field">
+                <label for="descripcion" class="block">Descripción (<span>*</span>)</label>
+                <textarea [style]="{ 'width' : '100%' }" formControlName="descripcion" rows="5" cols="30" pInputTextarea
+                class="{{formValidator(formAdd, 'descripcion') ? 'ng-invalid ng-dirty':''}}"></textarea>
+                <div *ngIf="formValidator(formAdd, 'descripcion')">
+                    <p class="error" *ngIf="fieldValidator(formAdd, 'descripcion', 'required')">
+                        Descripción requerida
+                    </p>             
+                </div>
+            </div>
+        </div>
+        <div class="col-12 sm:col-10 sm:col-offset-1">
+            <app-image-uploader></app-image-uploader>
+        </div>
     </form>
     <ng-template pTemplate="footer">
         <button [disabled]="formEdit.invalid || elementEditLoading" (click)="edit()" pButton pRipple type="button" icon="pi pi-check" label="Guardar" class="p-button-text"></button>
     </ng-template>
 </p-dialog>
+
+<p-sidebar [(visible)]="showFotos" [fullScreen]="true">
+    <div class="grid">
+        <div class="col-12">
+            <h3>Fotos</h3>
+        </div>
+        <div class="col-12">
+                <!-- <p-galleria [value]="fotos" [showIndicators]="true" [showThumbnails]="false">
+                    <ng-template pTemplate="item" let-item>
+                        <img [src]="item" style="width: 100%; display: block;" />
+                    </ng-template>
+                </p-galleria> -->
+        </div>
+    </div>
+
+</p-sidebar>

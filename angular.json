@@ -17,6 +17,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "dayjs",
+              "dayjs/plugin/timezone",
+              "dayjs/plugin/utc"
+            ],
             "outputPath": "dist/arqui-admin-front",
             "index": "src/index.html",
             "main": "src/main.ts",
