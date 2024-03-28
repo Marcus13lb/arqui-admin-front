@@ -132,19 +132,3 @@
         <button [disabled]="formEdit.invalid || elementEditLoading" (click)="edit()" pButton pRipple type="button" icon="pi pi-check" label="Guardar" class="p-button-text"></button>
     </ng-template>
 </p-dialog>
-
-<p-sidebar [(visible)]="showFotos" [fullScreen]="true">
-    <div class="grid">
-        <div class="col-12">
-            <h3>Fotos</h3>
-        </div>
-        <div class="col-12">
-                <!-- <p-galleria [value]="fotos" [showIndicators]="true" [showThumbnails]="false">
-                    <ng-template pTemplate="item" let-item>
-                        <img [src]="item" style="width: 100%; display: block;" />
-                    </ng-template>
-                </p-galleria> -->
-        </div>
-    </div>
-
-</p-sidebar>
