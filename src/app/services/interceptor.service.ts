@@ -23,7 +23,7 @@ export class InterceptorService implements HttpInterceptor {
     if (token) {
       req = req.clone({
         setHeaders: {
-          Authorization : `Bearer ${token}`,
+          'x-auth-token' : `Bearer ${token}`,
           rejectUnauthorized : 'false',
           Accept: 'application/json'
         }

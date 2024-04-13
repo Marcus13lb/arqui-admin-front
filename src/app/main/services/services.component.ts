@@ -45,11 +45,13 @@ export class ServicesComponent {
     this.formAdd = this.formBuilder.group({
       nombre: ['', [Validators.required]],
       descripcion: ['', [Validators.required]],
+      icono: ['fa-check', [Validators.required]],
     });
     this.formEdit = this.formBuilder.group({
       id: [null, [Validators.required]],
       nombre: ['', [Validators.required]],
       descripcion: ['', [Validators.required]],
+      icono: ['fa-check', [Validators.required]],
     });
   }
 
@@ -148,6 +150,7 @@ export class ServicesComponent {
   setEdit(element:any){
     this.formEdit.controls['nombre'].setValue(element.nombre);
     this.formEdit.controls['descripcion'].setValue(element.descripcion);
+    this.formEdit.controls['icono'].setValue(element.icono);
     this.formEdit.controls['id'].setValue(element.id);
     this.elementEditShow = true;
   }

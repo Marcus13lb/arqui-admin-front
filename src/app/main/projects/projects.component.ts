@@ -32,8 +32,6 @@ export class ProjectsComponent {
     }
   ]
   homeItem = homeBreadCrumb
-  fotos: any[] = []
-  showFotos: boolean = false
   
   
   constructor(private projectService: ProjectsService, private formBuilder: FormBuilder, private messageService: MessageService, 
@@ -170,20 +168,6 @@ export class ProjectsComponent {
 
   setFotos(event:any, form: FormGroup){
     form.controls['fotos'].setValue(event);
-  }
-
-  openGalleria(item:any){
-    const { fotos } = item
-    if(Array.isArray(fotos)){
-
-      this.fotos = []
-
-      fotos.forEach(el => {
-        this.fotos.push(`${environment.api}/public/${el}`)
-      })
-
-      this.showFotos = true
-    }
   }
 
 }

@@ -56,7 +56,7 @@
                     </p>             
                 </div>
             </div>
-        </div>
+        </div>  
         <div class="col-12 sm:col-10 sm:col-offset-1">
             <div class="field">
                 <label for="descripcion" class="block">Descripción (<span>*</span>)</label>
@@ -65,6 +65,18 @@
                 <div *ngIf="formValidator(formAdd, 'descripcion')">
                     <p class="error" *ngIf="fieldValidator(formAdd, 'descripcion', 'required')">
                         Descripción requerida
+                    </p>             
+                </div>
+            </div>
+        </div>
+        <div class="col-12 sm:col-10 sm:col-offset-1">
+            <div class="field">
+                <label for="icono" class="block">Icono (<span>*</span>)</label>
+                <input formControlName="icono" id="icono" type="text" pInputText 
+                class="p-inputtext-sm {{formValidator(formAdd, 'icono') ? 'ng-invalid ng-dirty':''}}"/>
+                <div *ngIf="formValidator(formAdd, 'icono')">
+                    <p class="error" *ngIf="fieldValidator(formAdd, 'icono', 'required')">
+                        Icono requerido
                     </p>             
                 </div>
             </div>
@@ -100,6 +112,18 @@
                 <div *ngIf="formValidator(formAdd, 'descripcion')">
                     <p class="error" *ngIf="fieldValidator(formAdd, 'descripcion', 'required')">
                         Descripción requerida
+                    </p>             
+                </div>
+            </div>
+        </div>
+        <div class="col-12 sm:col-10 sm:col-offset-1">
+            <div class="field">
+                <label for="icono" class="block">Icono (<span>*</span>)</label>
+                <input formControlName="icono" id="icono" type="text" pInputText 
+                class="p-inputtext-sm {{formValidator(formAdd, 'icono') ? 'ng-invalid ng-dirty':''}}"/>
+                <div *ngIf="formValidator(formAdd, 'icono')">
+                    <p class="error" *ngIf="fieldValidator(formAdd, 'icono', 'required')">
+                        Icono requerido
                     </p>             
                 </div>
             </div>

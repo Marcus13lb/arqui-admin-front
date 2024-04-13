@@ -1,17 +1,22 @@
 nav {
     height: 70px;
-    background-color: var(--primary-color);
+    background-color: var(--surface-800);
     
     h3 {
         color: var(--surface-0);
         margin: 0 0.5rem;
     }
+
+    img {
+        width: 120px;
+        height: auto;
+    }
     
     button {
-        color: var(--surface-0);
+        color: var(--primary-color);
         
         &:hover, &:enabled, &:active {
-            color: var(--surface-0) !important;
+            color: var(--primary-color) !important;
         }
     }
     
@@ -50,7 +55,7 @@ nav {
     }
 
     &:hover {
-        background-color: var(--indigo-50);
+        opacity: 0.75;
     }
 
 }

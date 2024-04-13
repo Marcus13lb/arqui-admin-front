@@ -1,7 +1,7 @@
 @import "./globals.scss";
 
 body {
-    font-family: "Inter";
+    font-family: var(--font-family);
     margin: 0;
 
     p {
