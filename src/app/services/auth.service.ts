@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.development';
 import { BehaviorSubject, Observable } from 'rxjs';
 import jwt_decode from "jwt-decode";
 import { Router } from '@angular/router';

@@ -12,6 +12,7 @@ import { ServicesComponent } from './services/services.component';
 import { ConfirmationService } from 'primeng/api';
 import { ImageUploaderComponent } from './shared/image-uploader/image-uploader.component';
 import { ImageComponent } from './shared/image/image.component';
+import { WebComponent } from './web/web.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { ImageComponent } from './shared/image/image.component';
     ServicesComponent,
     ImageUploaderComponent,
     ImageComponent,
+    WebComponent,
   ],
   imports: [
     CommonModule,

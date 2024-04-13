@@ -1,0 +1,133 @@
+<div class="grid">
+    <div class="col-12">
+        <p-breadcrumb [home]="homeItem" [model]="items"></p-breadcrumb>
+    </div>
+    <form [formGroup]="formWeb" class="grid" (submit)="update()">
+        <div class="col-12 sm:col-10 sm:col-offset-1">
+            <div class="field">
+                <label for="slogan" class="block">Slogan (<span>*</span>)</label>
+                <input formControlName="slogan" id="slogan" type="text" pInputText 
+                class="p-inputtext-sm {{formValidator(formWeb, 'slogan') ? 'ng-invalid ng-dirty':''}}"/>
+                <div *ngIf="formValidator(formWeb, 'slogan')">
+                    <p class="error" *ngIf="fieldValidator(formWeb, 'slogan', 'required')">
+                        Slogan requerido
+                    </p>             
+                </div>
+            </div>
+        </div>
+        <div class="col-12 sm:col-10 sm:col-offset-1">
+            <div class="field">
+                <label for="services_description" class="block">Descripción de servicios (<span>*</span>)</label>
+                <input formControlName="services_description" id="services_description" type="text" pInputText 
+                class="p-inputtext-sm {{formValidator(formWeb, 'services_description') ? 'ng-invalid ng-dirty':''}}"/>
+                <div *ngIf="formValidator(formWeb, 'services_description')">
+                    <p class="error" *ngIf="fieldValidator(formWeb, 'services_description', 'required')">
+                        Descripción de servicios requerido
+                    </p>             
+                </div>
+            </div>
+        </div>
+        <div class="col-12 sm:col-10 sm:col-offset-1">
+            <div class="field">
+                <label for="projects_description" class="block">Descripción de proyectos (<span>*</span>)</label>
+                <input formControlName="projects_description" id="projects_description" type="text" pInputText 
+                class="p-inputtext-sm {{formValidator(formWeb, 'projects_description') ? 'ng-invalid ng-dirty':''}}"/>
+                <div *ngIf="formValidator(formWeb, 'projects_description')">
+                    <p class="error" *ngIf="fieldValidator(formWeb, 'projects_description', 'required')">
+                        Descripción de proyectos requerido
+                    </p>             
+                </div>
+            </div>
+        </div>
+        <div class="col-12 sm:col-10 sm:col-offset-1">
+            <div class="field">
+                <label for="facebook" class="block">Facebook (<span>*</span>)</label>
+                <input formControlName="facebook" id="facebook" type="text" pInputText 
+                class="p-inputtext-sm {{formValidator(formWeb, 'facebook') ? 'ng-invalid ng-dirty':''}}"/>
+                <div *ngIf="formValidator(formWeb, 'facebook')">
+                    <p class="error" *ngIf="fieldValidator(formWeb, 'facebook', 'required')">
+                        Facebook requerido
+                    </p>             
+                </div>
+            </div>
+        </div>
+        <div class="col-12 sm:col-10 sm:col-offset-1">
+            <div class="field">
+                <label for="instagram" class="block">Instagram (<span>*</span>)</label>
+                <input formControlName="instagram" id="instagram" type="text" pInputText 
+                class="p-inputtext-sm {{formValidator(formWeb, 'instagram') ? 'ng-invalid ng-dirty':''}}"/>
+                <div *ngIf="formValidator(formWeb, 'instagram')">
+                    <p class="error" *ngIf="fieldValidator(formWeb, 'instagram', 'required')">
+                        Instagram requerido
+                    </p>             
+                </div>
+            </div>
+        </div>
+        <div class="col-12 sm:col-10 sm:col-offset-1">
+            <div class="field">
+                <label for="telefono" class="block">Teléfono (<span>*</span>)</label>
+                <input formControlName="telefono" id="telefono" type="text" pInputText 
+                class="p-inputtext-sm {{formValidator(formWeb, 'telefono') ? 'ng-invalid ng-dirty':''}}"/>
+                <div *ngIf="formValidator(formWeb, 'telefono')">
+                    <p class="error" *ngIf="fieldValidator(formWeb, 'telefono', 'required')">
+                        Teléfono requerido
+                    </p>             
+                </div>
+            </div>
+        </div>
+        <div class="col-12 sm:col-10 sm:col-offset-1">
+            <div class="field">
+                <label for="email" class="block">Email (<span>*</span>)</label>
+                <input formControlName="email" id="email" type="text" pInputText 
+                class="p-inputtext-sm {{formValidator(formWeb, 'email') ? 'ng-invalid ng-dirty':''}}"/>
+                <div *ngIf="formValidator(formWeb, 'email')">
+                    <p class="error" *ngIf="fieldValidator(formWeb, 'email', 'required')">
+                        Email requerido
+                    </p>             
+                </div>
+            </div>
+        </div>
+        <div class="col-12 sm:col-10 sm:col-offset-1">
+            <div class="field">
+                <label for="ubicacion_url" class="block">Ubicación URL (Google Maps) (<span>*</span>)</label>
+                <input formControlName="ubicacion_url" id="ubicacion_url" type="text" pInputText 
+                class="p-inputtext-sm {{formValidator(formWeb, 'ubicacion_url') ? 'ng-invalid ng-dirty':''}}"/>
+                <div *ngIf="formValidator(formWeb, 'ubicacion_url')">
+                    <p class="error" *ngIf="fieldValidator(formWeb, 'ubicacion_url', 'required')">
+                        Ubicación URL (Google Maps) requerido
+                    </p>             
+                </div>
+            </div>
+        </div>
+        <div class="col-12 sm:col-10 sm:col-offset-1">
+            <div class="field">
+                <label for="direccion" class="block">Dirección (<span>*</span>)</label>
+                <input formControlName="direccion" id="direccion" type="text" pInputText 
+                class="p-inputtext-sm {{formValidator(formWeb, 'direccion') ? 'ng-invalid ng-dirty':''}}"/>
+                <div *ngIf="formValidator(formWeb, 'direccion')">
+                    <p class="error" *ngIf="fieldValidator(formWeb, 'direccion', 'required')">
+                        Dirección requerido
+                    </p>             
+                </div>
+            </div>
+        </div>
+        <div class="col-12 sm:col-10 sm:col-offset-1">
+            <div class="field">
+                <label for="sobre_nosotros" class="block">Sobre nosotros (<span>*</span>)</label>
+                <textarea [style]="{ 'width' : '100%' }" formControlName="sobre_nosotros" rows="5" cols="30" pInputTextarea
+                class="{{formValidator(formWeb, 'sobre_nosotros') ? 'ng-invalid ng-dirty':''}}"></textarea>
+                <div *ngIf="formValidator(formWeb, 'sobre_nosotros')">
+                    <p class="error" *ngIf="fieldValidator(formWeb, 'sobre_nosotros', 'required')">
+                        Sobre nosotros requerida
+                    </p>             
+                </div>
+            </div>
+        </div>
+        <div class="col-12 sm:col-10 sm:col-offset-1">
+            <div class="flex justify-content-end">
+                <button [disabled]="formWeb.invalid || updateLoading" (click)="update()" pButton pRipple type="button" icon="pi pi-check" label="Guardar"></button>
+
+            </div>
+        </div>
+    </form>
+</div>

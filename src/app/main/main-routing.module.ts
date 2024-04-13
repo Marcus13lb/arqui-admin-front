@@ -4,6 +4,7 @@ import { MainComponent } from './main.component';
 import { HomeComponent } from './home/home.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ServicesComponent } from './services/services.component';
+import { WebComponent } from './web/web.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
       {
         path: 'services',
         component: ServicesComponent
+      },
+      {
+        path: 'web',
+        component: WebComponent
       }
     ]
   }

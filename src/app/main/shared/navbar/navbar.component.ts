@@ -29,6 +29,14 @@ export class NavbarComponent {
     },
     {
       perm: null,
+      nombre: 'Web',
+      icon: 'pi pi-globe',
+      f : () => {
+        this.router.navigateByUrl('/web')
+      }
+    },
+    {
+      perm: null,
       nombre: 'Proyectos',
       icon: 'pi pi-star',
       f : () => {
