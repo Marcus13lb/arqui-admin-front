@@ -5,6 +5,18 @@
     <form [formGroup]="formWeb" class="grid" (submit)="update()">
         <div class="col-12 sm:col-10 sm:col-offset-1">
             <div class="field">
+                <label for="app" class="block">App (Aparece en el título y en el pie de la página) (<span>*</span>)</label>
+                <input formControlName="app" id="app" type="text" pInputText 
+                class="p-inputtext-sm {{formValidator(formWeb, 'app') ? 'ng-invalid ng-dirty':''}}"/>
+                <div *ngIf="formValidator(formWeb, 'app')">
+                    <p class="error" *ngIf="fieldValidator(formWeb, 'app', 'required')">
+                        App requerido
+                    </p>             
+                </div>
+            </div>
+        </div>
+        <div class="col-12 sm:col-10 sm:col-offset-1">
+            <div class="field">
                 <label for="slogan" class="block">Slogan (<span>*</span>)</label>
                 <input formControlName="slogan" id="slogan" type="text" pInputText 
                 class="p-inputtext-sm {{formValidator(formWeb, 'slogan') ? 'ng-invalid ng-dirty':''}}"/>

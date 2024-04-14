@@ -29,6 +29,7 @@ export class WebComponent {
 
   constructor(private formBuilder: FormBuilder, private webService: WebService, private messageService: MessageService, private loader: NgxUiLoaderService){
     this.formWeb = this.formBuilder.group({
+      app: ['', [Validators.required]],
       slogan: ['', [Validators.required]],
       services_description: ['', [Validators.required]],
       projects_description: ['', [Validators.required]],
