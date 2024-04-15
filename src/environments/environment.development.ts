@@ -1,5 +1,5 @@
 export const environment = {
-    api: 'http://localhost:8000',
+    api: 'https://seguridad.personal.com.py/test/cz',
     version: 'v1.0.1',
     appName: 'Caza Constructora Admin',
 };

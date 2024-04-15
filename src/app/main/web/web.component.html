@@ -85,6 +85,28 @@
                         Teléfono requerido
                     </p>             
                 </div>
+                <div *ngIf="formValidator(formWeb, 'telefono')">            
+                    <p class="error" *ngIf="fieldValidator(formWeb, 'telefono', 'pattern')">
+                        El nro. de teléfono debe empezar con 595 y tener una longitud de 12 caracteres
+                    </p>             
+                </div>
+            </div>
+        </div>
+        <div class="col-12 sm:col-10 sm:col-offset-1">
+            <div class="field">
+                <label for="telefono2" class="block">Teléfono 2 (<span>*</span>)</label>
+                <input formControlName="telefono2" id="telefono2" type="text" pInputText 
+                class="p-inputtext-sm {{formValidator(formWeb, 'telefono2') ? 'ng-invalid ng-dirty':''}}"/>
+                <div *ngIf="formValidator(formWeb, 'telefono2')">
+                    <p class="error" *ngIf="fieldValidator(formWeb, 'telefono2', 'required')">
+                        Teléfono 2 requerido
+                    </p>             
+                </div>
+                <div *ngIf="formValidator(formWeb, 'telefono2')">            
+                    <p class="error" *ngIf="fieldValidator(formWeb, 'telefono2', 'pattern')">
+                        El nro. de teléfono debe empezar con 595 y tener una longitud de 12 caracteres
+                    </p>             
+                </div>
             </div>
         </div>
         <div class="col-12 sm:col-10 sm:col-offset-1">
@@ -95,6 +117,28 @@
                 <div *ngIf="formValidator(formWeb, 'email')">
                     <p class="error" *ngIf="fieldValidator(formWeb, 'email', 'required')">
                         Email requerido
+                    </p>             
+                </div>
+                <div *ngIf="formValidator(formWeb, 'email')">            
+                    <p class="error" *ngIf="fieldValidator(formWeb, 'email', 'pattern')">
+                      Correo Electrónico inválido
+                    </p>             
+                </div>
+            </div>
+        </div>
+        <div class="col-12 sm:col-10 sm:col-offset-1">
+            <div class="field">
+                <label for="email2" class="block">Email 2 (<span>*</span>)</label>
+                <input formControlName="email2" id="email2" type="text" pInputText 
+                class="p-inputtext-sm {{formValidator(formWeb, 'email2') ? 'ng-invalid ng-dirty':''}}"/>
+                <div *ngIf="formValidator(formWeb, 'email2')">
+                    <p class="error" *ngIf="fieldValidator(formWeb, 'email2', 'required')">
+                        Email requerido
+                    </p>             
+                </div>
+                <div *ngIf="formValidator(formWeb, 'email2')">            
+                    <p class="error" *ngIf="fieldValidator(formWeb, 'email2', 'pattern')">
+                      Correo Electrónico inválido
                     </p>             
                 </div>
             </div>

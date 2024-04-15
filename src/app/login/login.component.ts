@@ -42,13 +42,12 @@ export class LoginComponent {
   login = () => {
     if(this.form.valid){
       this.auth.login(this.form.value).subscribe(response => {
-        console.log('hola')
         localStorage.setItem('token', response.result);
         this.router.navigate(['']);
       },
       (error: HttpErrorResponse) => {
         let e : Response = error.error;
-        this.messageService.add({severity:'error', key:'login', summary: 'Gedex', detail: e.message ? e.message : 'Error en el servidor'});
+        this.messageService.add({severity:'error', key:'login', summary: 'App', detail: e.message ? e.message : 'Error en el servidor'});
       })
     }
   }

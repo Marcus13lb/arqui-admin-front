@@ -35,8 +35,10 @@ export class WebComponent {
       projects_description: ['', [Validators.required]],
       facebook: ['', [Validators.required]],
       instagram: ['', [Validators.required]],
-      telefono: ['', [Validators.required]],
-      email: ['', [Validators.required]],
+      telefono: ['', [Validators.required, Validators.required, Validators.pattern("^595[0-9]{9}$")]],
+      telefono2: ['', [Validators.required, Validators.required, Validators.pattern("^595[0-9]{9}$")]],
+      email: ['', [Validators.required, Validators.pattern("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")]],
+      email2: ['', [Validators.required, Validators.pattern("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")]],
       ubicacion_url: ['', [Validators.required]],
       direccion: ['', [Validators.required]],
       sobre_nosotros: ['', [Validators.required]],
@@ -72,7 +74,7 @@ export class WebComponent {
       this.webService.updateWebConf(this.formWeb.value).subscribe({
         next: (response: Response) => {
           this.get();
-          this.messageService.add({key: 'admin', severity:'success', summary:'Éxito', detail: 'Elemento agregado'});
+          this.messageService.add({key: 'admin', severity:'success', summary:'Éxito', detail: 'Datos actualizados'});
           this.updateLoading = false;
         },
         error: (err:HttpErrorResponse) => {
